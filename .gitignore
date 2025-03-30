@@ -12,3 +12,6 @@ override.tf
 override.tf.json
 *override.tf
 *override.tf.json
+
+# Ignore CLI configuration files
+*.tfvars
