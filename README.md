@@ -7,9 +7,9 @@
 ✅ A Google Cloud Project with billing enabled  
 
 ### **Authenticate with Google Cloud**
-Run the following command to authenticate Terraform:
+Run the following command to authenticate with a dedicated service account:
 ```sh
-gcloud auth application-default login
+cloud auth activate-service-account [ACCOUNT] --key-file=KEY_FILE
 ```
 
 ## **🚀 How to Use**
@@ -23,7 +23,7 @@ terraform init
 Edit the `terraform.tfvars` file (**do not commit this file**) and set your GCP project details:
 ```hcl
 project_id = "your-gcp-project-id"
-region     = "us-central1"
+region     = "europe-west1"
 ```
 
 ### **3️⃣ Plan the Deployment**
