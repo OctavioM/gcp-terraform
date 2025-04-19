@@ -6,13 +6,10 @@ module "terraform_service_account" {
   roles                = ["roles/editor", "roles/viewer", "roles/bigquery.admin"]
 }
 
-resource "google_pubsub_topic" "gtfs_alerts" {
-  project  = var.project_id
-  name = "gtfs-alerts"
-}
-
-resource "google_bigquery_dataset" "carris" {
-  project  = var.project_id
-  dataset_id = "carris"
-  location   = "EU"
+module "cloud_run_service_account" {
+  source               = "./modules/service-account"
+  project_id           = var.project_id
+  service_account_name = var.cloud_run_sa_name
+  display_name         = "Cloud Run Service Account"
+  roles                = ["roles/pubsub.publisher"]
 }
